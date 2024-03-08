@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-baloo{
+    font-family: "Baloo 2"; 
+    font-optical-sizing: auto; 
+}
+
+.font-micro{
+    font-family: "Micro 5"; 
+    font-optical-sizing: auto; 
+}
+
+.title-text{
+    font-family: "Baloo 2"; 
+    font-optical-sizing: auto; 
+    color: black; 
+    font-weight: 600;
+    font-size: 40px;
+}
