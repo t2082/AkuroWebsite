@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Article Page</title>
+    <title>{{ $blog->title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-gray-100">
-    <div class="max-w-4xl mx-auto mt-10">
-        <article class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img class="w-full h-64 object-cover" src="your-image-url.jpg" alt="Article Image">
-            <div class="p-8">
-                <h1 class="text-3xl font-bold mb-4">{{ $blog->title }}</h1>
-                <p class="text-sm text-gray-600">By Author Name - Date</p>
-                <div class="mt-6 space-y-4 text-gray-800">
+    <header>
+        @include('components.navbar')
+    </header>
+    <main>
+        <div class="mt-10">
+            <article class="mx-52 bg-white shadow-md rounded-lg overflow-hidden mb-10 p-8">
+                <img class="w-full h-96 object-cover" src="{{ $blog->image }}" alt="Article Image">
+                <h1 class="text-5xl font-bold my-20 text-center">{{ $blog->title }}</h1>
+                <hr class="mx-40">
+                <div class="mt-20 space-y-4 text-gray-800">
                     {!! $blog->content !!}
                 </div>
-            </div>
-        </article>
-    </div>
+                <p class="text-base text-gray-500 mt-10">Created at: {{ $blog->created_at }} - Update at:
+                    {{ $blog->updated_at }}</p>
+            </article>
+        </div>
+    </main>
+    <footer>
+        @include('components.footer')
+    </footer>
 </body>
+
 </html>

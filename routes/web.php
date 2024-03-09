@@ -31,7 +31,6 @@ Route::post('/blog/store', [CreateController::class, 'store'])->name('blog.store
 // Hiển thị bài viết
 Route::get('/blog/read/{blog}/', [CreateController::class, 'show'])->name('blog.read');
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

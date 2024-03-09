@@ -39,15 +39,27 @@
         </a>
 
         <div class="flex items-center">
-            <a href="/" class="mr-4 font-baloo text-xl {{ Request::is('/') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Trang chủ </a>
-            <a href="/blog/list/" class="mr-4 font-baloo text-xl {{ Request::is('blog/list') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Tất cả blog </a>
-            <a href="#" class="mr-4 font-baloo text-xl {{ Request::is('/#') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Nhạc của Tân </a>
+            <a href="/" class="linknav mr-4 font-baloo text-xl {{ Request::is('/') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Trang chủ </a>
+            <a href="/blog/list/" class="linknav mr-4 font-baloo text-xl {{ Request::is('blog/list') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Tất cả blog </a>
+            <a href="#" class="linknav mr-4 font-baloo text-xl {{ Request::is('/#') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Nhạc của Tân </a>
             @if(Auth::check()) <!-- Kiểm tra xem người dùng đã đăng nhập chưa -->
                 <p class="">|</p>
                 @if(Auth::user()->role == 0)
-                    <p class="mx-4 font-baloo text-xl">Xin chào <u>{{ Auth::user()->name }}</u></p>
+                    <p class="linknav mx-4 font-baloo text-xl">Xin chào <u>{{ Auth::user()->name }}</u></p>
+                    
                 @else
-                    <p class="mx-4 font-micro text-3xl text-yellow-200"><u>Administrator</u></p>
+                    <div id="name-admin" class="relative mx-4 font-micro text-3xl text-yellow-200">
+                        <button onclick="toggleDropdown()" class="focus:outline-none">
+                            <u >Administrator</u>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownMenu" class="hidden absolute left-1/2 mt-2 w-28 bg-gray-900 rounded-md shadow-lg py-1 z-50">
+                            <form method="POST" action="{{ route('logout') }}" class="block py-1 ">
+                                @csrf
+                                <button type="submit" class="w-full text-white font-baloo text-base hover:underline">Log Out</button>
+                            </form>
+                        </div>
+                    </div>
                 @endif
             @endif
         </div>
@@ -63,5 +75,15 @@
             navbar.classList.remove('shadow-md', 'fixed');
         }
     });
+    function toggleDropdown() {
+        var dropdownMenu = document.getElementById("dropdownMenu");
+        if (dropdownMenu.classList.contains('hidden')) {
+            dropdownMenu.classList.remove('hidden');
+        } else {
+            dropdownMenu.classList.add('hidden');
+        }
+    }
+
 
 </script>
+
