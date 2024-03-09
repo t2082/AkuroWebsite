@@ -15,16 +15,16 @@
         </div>
 
         <div class="flex items-center">
-            <a href="https://facebook.com" class="text-white mr-4 hover:text-gray-200">
+            <a href="https://facebook.com/t2082" class="text-white mr-4 hover:text-gray-200" target="_blank">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://instagram.com" class="text-white mr-4 hover:text-gray-200">
+            <a href="https://www.instagram.com/akuro_t2082/" class="text-white mr-4 hover:text-gray-200" target="_blank">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://github.com" class="text-white mr-4 hover:text-gray-200">
+            <a href="https://github.com/t2082" class="text-white mr-4 hover:text-gray-200" target="_blank">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com" class="text-white hover:text-gray-200">
+            <a href="https://www.linkedin.com/in/t2082/" class="text-white hover:text-gray-200" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>

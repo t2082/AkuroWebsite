@@ -25,6 +25,12 @@ Route::get('/blog/list/', [ListController::class, 'index'])->name('blog.list');
 // Hiển thị form tạo bài viết mới
 Route::get('/blog/create/', [CreateController::class, 'create'])->name('blog.create');
 
+// Route hiển thị form sửa bài viết
+Route::get('/blog/{blog}/edit', [CreateController::class, 'edit'])->name('blog.edit');
+
+// Route cập nhật bài viết
+Route::put('/blog/{blog}', [CreateController::class, 'update'])->name('blog.update');
+
 // Lưu bài viết mới
 Route::post('/blog/store', [CreateController::class, 'store'])->name('blog.store');
 

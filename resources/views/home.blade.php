@@ -41,8 +41,7 @@
         <div class="container mx-auto flex pt-6 pb-24">
             <!-- Section left -->
             <div class="w-full md:w-1/2 flex flex-col items-center justify-center px-6">
-                <h2
-                    style='font-weight: 600; color: white; font-size: 43px'>
+                <h2 style='font-weight: 600; color: white; font-size: 43px'>
                     Chào mừng đến với trang của Akuro |</h2>
                 <p class="intro-text mt-10 border-l border-gray-500 pl-10">" Xin chào và cảm ơn bạn đã ghé thăm!<br>
                     Trang web được tạo ra với mục đích chia sẻ về cuộc sống và sở thích cá nhân của tôi.<br>
@@ -69,11 +68,15 @@
                                         class="w-[300px] h-[500px] object-cover">
                                 </div>
                                 <div class="mySlides fade">
-                                    <img src="{{ asset('assets/images/slide_2.jpg') }}" style="width:100%"
+                                    <img src="{{ asset('assets/images/slide_3.jpg') }}" style="width:100%"
                                         class="w-[300px] h-[500px] object-cover">
                                 </div>
                                 <div class="mySlides fade">
-                                    <img src="{{ asset('assets/images/slide_3.jpg') }}" style="width:100%"
+                                    <img src="{{ asset('assets/images/slide_4.jpg') }}" style="width:100%"
+                                        class="w-[300px] h-[500px] object-cover">
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="{{ asset('assets/images/slide_5.jpg') }}" style="width:100%"
                                         class="w-[300px] h-[500px] object-cover">
                                 </div>
                                 <a class="absolute top-1/2 left-0 bg-gray-200 text-black hover:text-white hover:bg-gray-800 p-3 cursor-pointer"
@@ -85,6 +88,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </header>
     <main class="bg-white">
@@ -98,7 +102,7 @@
                     <div class=" rounded overflow-hidden shadow-xl border m-3 border-gray-200">
                         <a href="{{ route('blog.read', $blog) }}">
                             <img class="w-full" src="{{ $blog->image }}" alt="Article image"
-                                style="height: 12rem; object-fit: cover;">
+                                style="height: 13rem; object-fit: cover;">
                             <div class="px-6 py-4">
                                 <div class="font-semibold text-2xl mb-2">{{ $blog->title }}</div>
                                 <div class="h-16">
@@ -118,52 +122,32 @@
         <hr class="mx-48">
 
         {{-- PRODUCT --}}
-
         <h2 class="title-text text-center mt-5 mb-3">Các sản phẩm của Tân</h2>
         <hr class="mx-96">
-
         <div class="container mx-auto px-4 mt-7 pb-20">
             <div class="grid md:grid-cols-3 gap-4">
-                <!-- Bài viết 1 -->
-                <div class=" rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="/path/to/article-image1.jpg" alt="Article image"
-                        style="height: 300px; object-fit: cover;">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Tiêu đề bài viết 1</div>
-                        <p class="text-gray-700 text-base">
-                            Tóm tắt nội dung bài viết 1...
-                        </p>
-                        <p class="text-gray-600 text-xs">Ngày giờ viết</p>
+                <!-- Hiển thị các bài viết -->
+                @foreach ($products as $product)
+                    <div class=" rounded overflow-hidden shadow-xl border m-3 border-gray-200">
+                        <a href="{{ route('blog.read', $blog) }}">
+                            <img class="w-full" src="{{ $blog->image }}" alt="Article image"
+                                style="height: 13rem; object-fit: cover;">
+                            <div class="px-6 py-4">
+                                <div class="font-semibold text-2xl mb-2">{{ $blog->title }}</div>
+                                <div class="h-16">
+                                    <p
+                                        class="text-gray-700 text-base line-clamp-2 break-words overflow-hidden overflow-ellipsis">
+                                        {{ $blog->description }}
+                                    </p>
+                                </div>
+                                <p class="text-gray-600 text-xs text-right">Updated at: {{ $blog->updated_at }}</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Bài viết 2 -->
-                <div class=" rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="/path/to/article-image2.jpg" alt="Article image"
-                        style="height: 300px; object-fit: cover;">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Tiêu đề bài viết 2</div>
-                        <p class="text-gray-700 text-base">
-                            Tóm tắt nội dung bài viết 2...
-                        </p>
-                        <p class="text-gray-600 text-xs">Ngày giờ viết</p>
-                    </div>
-                </div>
-
-                <!-- Bài viết 3 -->
-                <div class=" rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="/path/to/article-image3.jpg" alt="Article image"
-                        style="height: 300px; object-fit: cover;">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Tiêu đề bài viết 3</div>
-                        <p class="text-gray-700 text-base">
-                            Tóm tắt nội dung bài viết 3...
-                        </p>
-                        <p class="text-gray-600 text-xs">Ngày giờ viết</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
+
     </main>
 
     @include('components.footer')
@@ -171,17 +155,17 @@
     <script>
         var slideIndex = 1;
         var slideTimer; // Biến để theo dõi bộ đếm thời gian
-        
+
         showSlides(slideIndex);
 
         function plusSlides() {
             clearTimeout(slideTimer); // Reset bộ đếm thời gian khi thay đổi slide
-            showSlides(slideIndex,false);
+            showSlides(slideIndex, false);
         }
 
         function currentSlides() {
             clearTimeout(slideTimer); // Reset bộ đếm thời gian khi thay đổi slide
-            showSlides(slideIndex,true);
+            showSlides(slideIndex, true);
         }
 
         function showSlides(n, reverse) {
@@ -192,12 +176,12 @@
             }
             if (reverse) {
                 slideIndex--;
-            }else{
+            } else {
                 slideIndex++;
             }
             if (slideIndex > slides.length) {
                 slideIndex = 1
-            }else if (slideIndex < 1){
+            } else if (slideIndex < 1) {
                 slideIndex = slides.length
             }
             slides[slideIndex - 1].style.display = "block";

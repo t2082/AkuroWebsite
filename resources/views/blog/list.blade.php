@@ -24,7 +24,7 @@
             @endif
         @endif
     </header>
-    <main>
+    <main class="font-baloo">
         <div class="container mx-auto px-4 mt-7 mb-10">
             <div class="flex justify-between items-center"">
                 <div class="title-text mt-20 mb-20 border-b border-gray-500 w-1/3 font-semibold text-4xl pb-5 flex ">
@@ -48,10 +48,10 @@
                 @foreach ($blog as $blog)
                     <div class="max-w-sm rounded overflow-hidden shadow-lg">
                         <a href="{{ route('blog.read', $blog) }}">
-                            <img class="w-full" src="{{ asset('assets/images/slide_1.jpg') }}" alt="Article image"
-                                style="height: 200px; object-fit: cover;">
+                            <img class="w-full" src="{{ $blog->image }}" alt="Article image"
+                                style="height: 13rem; object-fit: cover;">
                             <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">{{ $blog->title }}</div>
+                                <div class="font-bold text-2xl mb-2">{{ $blog->title }}</div>
                                 <div class="h-16">
                                     <p
                                         class="text-gray-700 text-base line-clamp-2 break-words overflow-hidden overflow-ellipsis">
