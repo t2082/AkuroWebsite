@@ -17,7 +17,7 @@
             <!-- Kiểm tra xem người dùng đã đăng nhập chưa -->
             @if (Auth::user()->role == 0)
             @else
-                <a href='\blog\create'
+                <a href='\create-blog'
                     class="w-14 h-14 fixed bottom-5 right-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full justify-center items-center flex">
                     <i class="fas fa-pen"></i>
                 </a>

@@ -2,40 +2,28 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Blog\ListController;
-use App\Http\Controllers\Blog\CreateController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/blog/list/', [ListController::class, 'index'])->name('blog.list');
+Route::get('/all-blog/', [BlogController::class, 'index'])->name('blog.list');
 
 // Hiển thị form tạo bài viết mới
-Route::get('/blog/create/', [CreateController::class, 'create'])->name('blog.create');
+Route::get('/create-blog/', [BlogController::class, 'create'])->name('blog.create');
 
 // Route hiển thị form sửa bài viết
-Route::get('/blog/{blog}/edit', [CreateController::class, 'edit'])->name('blog.edit');
+Route::get('/blog/read/id-blog={blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
 
 // Route cập nhật bài viết
-Route::put('/blog/{blog}', [CreateController::class, 'update'])->name('blog.update');
+Route::put('/blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
 
 // Lưu bài viết mới
-Route::post('/blog/store', [CreateController::class, 'store'])->name('blog.store');
+Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 
 // Hiển thị bài viết
-Route::get('/blog/read/{blog}/', [CreateController::class, 'show'])->name('blog.read');
+Route::get('/blog/read/id-blog={blog}/', [BlogController::class, 'show'])->name('blog.read');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

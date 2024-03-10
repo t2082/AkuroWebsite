@@ -26,14 +26,14 @@
                         <div class="flex flex-wrap -mx-2">
                             <div class="w-full px-2">
                                 <div class="bg-white p-5 rounded shadow-lg">
-                                    <h2 class="text-2xl font-semibold mb-2">Write a new blog post</h2>
+                                    <h2 class="text-3xl font-semibold mb-4">Tạo bài viết mới</h2>
                                     <form action="{{ route('blog.store') }}" method="POST"
                                         enctype="multipart/form-data" onsubmit="submitForm()">
                                         @csrf
                                         <input type="hidden" id="content" name="content">
                                         <div class="mb-4">
                                             <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                                                Title
+                                                Tiêu đề
                                             </label>
                                             <input
                                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -41,7 +41,7 @@
                                         </div>
                                         <div class="mb-4">
                                             <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
-                                                Category
+                                                Thể loại
                                             </label>
                                             <select
                                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="mb-4">
                                             <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
-                                                Feature Image
+                                                Ảnh bìa
                                             </label>
                                             <input type="file" id="image" name="image"
                                                 accept="image/png, image/jpeg, image/gif"
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="mb-4">
                                             <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
-                                                Description
+                                                Mô tả
                                             </label>
                                             <textarea
                                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="mb-4">
                                             <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
-                                                Content
+                                                Nội dung
                                             </label>
                                             <div id="editor"
                                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-96">
@@ -76,14 +76,14 @@
                                         </div>
 
                                         <div class="flex items-center justify-between">
+                                            <button
+                                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            type="reset">
+                                            Clear
+                                            </button>
                                             <button type="submit"
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                                Publish
-                                            </button>
-                                            <button
-                                                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                                type="reset">
-                                                Clear
+                                                Đăng bài
                                             </button>
                                         </div>
                                     </form>

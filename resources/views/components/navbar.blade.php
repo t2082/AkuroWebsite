@@ -9,7 +9,7 @@
     <div class="container mx-auto flex justify-between items-center">
         <div class="flex items-center">
             
-            <a href="#" class="text-white mr-4 hover:text-gray-200">Giới thiệu</a>
+            <a href="https://t2082.github.io/info/" class="text-white mr-4 hover:text-gray-200" target="_blank">Giới thiệu</a>
             <a href="#" class="text-white mr-4 hover:text-gray-200">Liên hệ</a>
             <a href="#" class="text-white hover:text-gray-200">Ăn xin online</a>
         </div>
@@ -40,7 +40,7 @@
 
         <div class="flex items-center">
             <a href="/" class="linknav mr-4 font-baloo text-xl {{ Request::is('/') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Trang chủ </a>
-            <a href="/blog/list/" class="linknav mr-4 font-baloo text-xl {{ Request::is('blog/list') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Tất cả blog </a>
+            <a href="/all-blog/" class="linknav mr-4 font-baloo text-xl {{ Request::is('blog/list') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Tất cả blog </a>
             <a href="#" class="linknav mr-4 font-baloo text-xl {{ Request::is('/#') ? 'text-red-500 hover:text-red-600' : 'text-white  hover:text-gray-200'}}">| Nhạc của Tân </a>
             @if(Auth::check()) <!-- Kiểm tra xem người dùng đã đăng nhập chưa -->
                 <p class="">|</p>

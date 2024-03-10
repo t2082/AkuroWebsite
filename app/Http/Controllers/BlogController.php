@@ -1,14 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Cloudinary\Api\Upload\UploadApi;
 
-class CreateController extends Controller
+class BlogController extends Controller
 {
+
+    public function index()
+    {
+        $blog = Blog::all(); // Lấy tất cả bài viết
+        return view('blog/list', compact('blog'));
+    }
+
     public function create()
     {
         return view('blog/create');
